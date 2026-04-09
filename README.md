@@ -1,1 +1,1 @@
-Fabric workspace Git integration repository
+Fabric workspace Git integration repository.
