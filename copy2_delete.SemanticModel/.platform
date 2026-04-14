@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "copy2_delete"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4afa01e8-be6e-b5dd-4ccd-4e050cd2bcbd"
+  }
+}
