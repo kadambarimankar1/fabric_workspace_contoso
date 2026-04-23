@@ -1,0 +1,20 @@
+relationship c6877eca-26a2-f1c0-44d7-624339806853
+	fromColumn: dbo_Customers.CustomerID
+	toColumn: dbo_Accounts.CustomerID
+
+relationship b48949d8-d549-f8aa-2230-96b62df72b26
+	fromColumn: dbo_Loans.CustomerID
+	toColumn: dbo_Customers.CustomerID
+
+relationship fdbeac47-9638-2d1c-d25f-325a3865bdee
+	fromColumn: dbo_LoanPayments.LoanID
+	toColumn: dbo_Loans.LoanID
+
+relationship 1f4bd7c2-dbbb-0022-9e49-61d71517113c
+	fromColumn: dbo_Payments.TransactionID
+	toColumn: dbo_Transactions.TransactionID
+
+relationship 9795ec74-2ac3-6ae9-c4c4-4b71e7c13434
+	fromColumn: dbo_Transactions.AccountID
+	toColumn: dbo_Accounts.AccountID
+

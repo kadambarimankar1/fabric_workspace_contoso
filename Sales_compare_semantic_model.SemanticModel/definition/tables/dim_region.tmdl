@@ -1,0 +1,44 @@
+table dim_region
+	lineageTag: 56f18762-4da6-4f04-858a-7be46d81b416
+	sourceLineageTag: [insurance].[dim_region]
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aa6031c1-dc15-41b0-88dc-9722ef9a566f
+		sourceLineageTag: region_id
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b90e3610-2d7a-4885-ba62-f256c193618f
+		sourceLineageTag: region_name
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 91cd1fac-3dc9-4ad9-a4ef-c189916df114
+		sourceLineageTag: zone
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_region = entity
+		mode: directLake
+		source
+			entityName: dim_region
+			schemaName: insurance
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,59 @@
+table dbo_LoanPayments
+	lineageTag: 36a47881-eec9-4663-84a1-ec7186847044
+	sourceLineageTag: [dbo].[dbo_LoanPayments]
+
+	column LoanPaymentID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0b3950b0-ae27-49c9-9160-32d19122bd47
+		sourceLineageTag: LoanPaymentID
+		summarizeBy: count
+		sourceColumn: LoanPaymentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6fc8f576-1830-432a-8441-633b7519bf2e
+		sourceLineageTag: LoanID
+		summarizeBy: none
+		sourceColumn: LoanID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: a79022ed-9362-4056-85fc-013a43e83c69
+		sourceLineageTag: PaymentDate
+		summarizeBy: none
+		sourceColumn: PaymentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: fecfdc69-b62a-4601-9085-f734d99e26a0
+		sourceLineageTag: PaymentAmount
+		summarizeBy: sum
+		sourceColumn: PaymentAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition dbo_LoanPayments = entity
+		mode: directLake
+		source
+			entityName: dbo_LoanPayments
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

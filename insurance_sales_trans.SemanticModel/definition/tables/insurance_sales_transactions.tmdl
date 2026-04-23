@@ -1,0 +1,199 @@
+table insurance_sales_transactions
+	lineageTag: 7b54865a-5422-4c19-ac33-f36cfe396b47
+	sourceLineageTag: [dbo].[insurance_sales_transactions]
+
+	column policy_id
+		dataType: string
+		lineageTag: 2eca088b-e185-4f2c-a3dd-eb4df2bae3f7
+		sourceLineageTag: policy_id
+		summarizeBy: none
+		sourceColumn: policy_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 70bea6e8-e142-402a-93ac-b6338f5589d5
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 84fa3eb0-0fca-4956-ab61-ca8d506645d2
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e5effb4-b825-4ea0-8571-3edbf33ceed8
+		sourceLineageTag: age
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 7d0b96e8-7093-487f-a161-056264727e41
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: ef468f91-c5f1-4606-860a-00cda3b45c63
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_type
+		dataType: string
+		lineageTag: ca1b712c-d463-4685-8df8-5f658ed4fad5
+		sourceLineageTag: product_type
+		summarizeBy: none
+		sourceColumn: product_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ac150837-3a77-4698-b0de-585e09cff5d2
+		sourceLineageTag: purchase_date
+		summarizeBy: none
+		sourceColumn: purchase_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 88caa338-dc0e-4728-9a97-b5c1cec9da9c
+		sourceLineageTag: premium_amount
+		summarizeBy: sum
+		sourceColumn: premium_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_term_years
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c143477-3e6d-4232-9ff8-ee3e925bc21d
+		sourceLineageTag: policy_term_years
+		summarizeBy: sum
+		sourceColumn: policy_term_years
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_mode
+		dataType: string
+		lineageTag: 6d68d104-5e6a-4f1f-ab40-c8a8430dab93
+		sourceLineageTag: payment_mode
+		summarizeBy: none
+		sourceColumn: payment_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_id
+		dataType: string
+		lineageTag: e1c702c4-effc-43a1-8e00-8f2167eeb1a7
+		sourceLineageTag: agent_id
+		summarizeBy: none
+		sourceColumn: agent_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_name
+		dataType: string
+		lineageTag: d14c26eb-b316-431f-836e-1ca26581dfbc
+		sourceLineageTag: agent_name
+		summarizeBy: none
+		sourceColumn: agent_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column branch
+		dataType: string
+		lineageTag: 15479f45-8012-4d22-8470-b475f5a76679
+		sourceLineageTag: branch
+		summarizeBy: none
+		sourceColumn: branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_status
+		dataType: string
+		lineageTag: 5eb5e687-43dc-40e6-81e6-686bfc9c93f2
+		sourceLineageTag: claim_status
+		summarizeBy: none
+		sourceColumn: claim_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 523c25db-01ec-4021-8616-6b40255e57ef
+		sourceLineageTag: claim_amount
+		summarizeBy: sum
+		sourceColumn: claim_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column commission
+		dataType: double
+		lineageTag: 5056e942-691a-4591-a1d6-240ecd299a82
+		sourceLineageTag: commission
+		summarizeBy: sum
+		sourceColumn: commission
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column policy_status
+		dataType: string
+		lineageTag: 0b51b60f-15b2-47ba-b79a-d16ee5fcc4f2
+		sourceLineageTag: policy_status
+		summarizeBy: none
+		sourceColumn: policy_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 902b932a-ac29-436f-94b8-9436e517de21
+		sourceLineageTag: purchase_year
+		summarizeBy: sum
+		sourceColumn: purchase_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_quarter
+		dataType: string
+		lineageTag: beec10c2-0073-4961-b699-25d525015f27
+		sourceLineageTag: purchase_quarter
+		summarizeBy: none
+		sourceColumn: purchase_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition insurance_sales_transactions = entity
+		mode: directLake
+		source
+			entityName: insurance_sales_transactions
+			schemaName: dbo
+			expressionSource: 'DirectLake - Bronze'
+

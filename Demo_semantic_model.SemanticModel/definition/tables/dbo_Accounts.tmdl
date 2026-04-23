@@ -1,0 +1,66 @@
+table dbo_Accounts
+	lineageTag: d36ee33c-3346-40e9-98a6-ff16e3e57040
+	sourceLineageTag: [dbo].[dbo_Accounts]
+
+	column AccountID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bf40da94-2d70-4ab5-a7a1-f480612379d2
+		sourceLineageTag: AccountID
+		summarizeBy: none
+		sourceColumn: AccountID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b5e36942-0b2f-47eb-b8f3-b71fe65b0c67
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29603eb0-6af1-4b93-8017-a3d5a47b9016
+		sourceLineageTag: AccountType
+		summarizeBy: none
+		sourceColumn: AccountType
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: c6974dfe-610f-4d92-9d51-78f1242400ef
+		sourceLineageTag: OpenDate
+		summarizeBy: none
+		sourceColumn: OpenDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f30a191c-4cf8-4f31-9cab-e120b3eb0c1f
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Accounts = entity
+		mode: directLake
+		source
+			entityName: dbo_Accounts
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

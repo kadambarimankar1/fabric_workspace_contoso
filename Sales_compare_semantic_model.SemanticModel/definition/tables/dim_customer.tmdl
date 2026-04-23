@@ -1,0 +1,109 @@
+/// Contains customer demographic and segmentation attributes used for insurance policy analysis. Each customer can be associated with multiple policy sales.
+table dim_customer
+	lineageTag: f02f6461-e315-4c7a-b3b8-233e1628a5ae
+	sourceLineageTag: [insurance].[dim_customer]
+
+	measure 'Sales LY' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    SAMEPERIODLASTYEAR(dim_date[full_date])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 65e38916-48fd-44dc-aede-d156a25e6114
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Unique identifier for a customer. Used to join customer details with policy sales.
+	column customer_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f9931c13-9a21-44c9-8eb7-d773922e57b1
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Full name of the customer. Used for reporting and AI responses.
+	column customer_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 43ad904c-0ed6-4283-a1fd-2acc3e4da14d
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Gender of the customer used for demographic analysis.
+	column gender
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5963c660-ae04-4efa-bdb4-48a95433f491
+		sourceLineageTag: gender
+		summarizeBy: none
+		sourceColumn: gender
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Age of the customer at the time of policy purchase.
+	column age
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b019ecf2-fe47-4fc4-b87d-abf7db88e61a
+		sourceLineageTag: age
+		summarizeBy: sum
+		sourceColumn: age
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Income classification of the customer used for segmentation and targeting.
+	column income_group
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5a867ee8-cbf9-4570-a862-d3fae03a3537
+		sourceLineageTag: income_group
+		summarizeBy: none
+		sourceColumn: income_group
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// City of residence of the customer used for regional analysis.
+	column city
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ac2a28b0-e8b6-44de-bae0-5376bfca106d
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			schemaName: insurance
+			expressionSource: DatabaseQuery
+
+	changedProperty = Description
+
+	annotation PBI_ResultType = Table
+

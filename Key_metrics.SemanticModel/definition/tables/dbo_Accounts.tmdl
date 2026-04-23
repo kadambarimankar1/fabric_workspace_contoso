@@ -1,0 +1,62 @@
+table dbo_Accounts
+	lineageTag: 5a0431ac-deb2-4138-9294-4dc2baf2fd3a
+
+	column AccountID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a7fe147-1383-4917-8c5d-9a5331cd0ffb
+		summarizeBy: count
+		sourceColumn: AccountID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 43fc8035-96a7-44e5-b2b7-ce70bf888fca
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountType
+		dataType: string
+		lineageTag: d1c4592a-a37a-4bda-8781-8b01a23c615e
+		summarizeBy: none
+		sourceColumn: AccountType
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 84ce9aba-e712-4fec-a33b-af6f1b6d3c8c
+		summarizeBy: none
+		sourceColumn: OpenDate
+
+		variation Variation
+			isDefault
+			relationship: 88887e98-0acb-4182-adc1-1d4da674273c
+			defaultHierarchy: LocalDateTable_844cbeef-1bfd-4a63-888d-10e48578eca5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Status
+		dataType: string
+		lineageTag: 720266a3-a857-4e7c-a116-fa2f01ffdda5
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Accounts = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_Accounts = Source{[Schema="dbo",Item="dbo_Accounts"]}[Data]
+				in
+				    dbo_dbo_Accounts
+

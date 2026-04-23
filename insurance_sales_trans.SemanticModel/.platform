@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "insurance_sales_trans"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a9238f40-e0ad-86aa-4580-13dca92f885b"
+  }
+}

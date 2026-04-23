@@ -1,0 +1,29 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dbo_Accounts","dbo_Customers","dbo_Loans","dbo_LoanPayments","dbo_Payments","dbo_ProfitCostConfig","dbo_Regions"]
+
+ref table dbo_Accounts
+ref table DateTableTemplate_61e8031b-4bfc-4d74-a03c-0f73dc964a6a
+ref table LocalDateTable_844cbeef-1bfd-4a63-888d-10e48578eca5
+ref table dbo_Customers
+ref table LocalDateTable_b21490ee-63de-4be5-bcfb-661a114b3a75
+ref table dbo_Loans
+ref table LocalDateTable_164c31ac-3a4a-46a7-b335-de7afb5835d1
+ref table LocalDateTable_a4fabfad-173c-4d2d-843b-fa7edee5831b
+ref table dbo_LoanPayments
+ref table LocalDateTable_a4013ebe-e708-4a60-985e-60fd9c70ab94
+ref table dbo_Payments
+ref table LocalDateTable_c469e2b6-f89f-4c4d-b3dd-7b7238df9c5f
+ref table dbo_ProfitCostConfig
+ref table dbo_Regions
+
+ref cultureInfo en-IN
+

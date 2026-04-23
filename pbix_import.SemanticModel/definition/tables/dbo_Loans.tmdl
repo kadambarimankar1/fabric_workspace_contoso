@@ -1,0 +1,84 @@
+table dbo_Loans
+	lineageTag: 5b7755b0-c086-42c5-9a36-ab01ad6d7f74
+
+	column LoanID
+		dataType: int64
+		formatString: 0
+		lineageTag: 397e0c25-dbb0-4c54-8366-44355eef0d6f
+		summarizeBy: none
+		sourceColumn: LoanID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: cca7859b-aeb0-489b-a6b0-4eb27a63475c
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanAmount
+		dataType: double
+		lineageTag: 542fa09a-e917-4967-92c6-5b1b688fa154
+		summarizeBy: sum
+		sourceColumn: LoanAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InterestRate
+		dataType: double
+		lineageTag: e8f758d9-a4d4-46af-bfb3-bd83056027f0
+		summarizeBy: sum
+		sourceColumn: InterestRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LoanStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4818a244-3ed5-4c40-ab4e-d24a03462873
+		summarizeBy: none
+		sourceColumn: LoanStartDate
+
+		variation Variation
+			isDefault
+			relationship: 02783b19-dd6e-40af-8f4f-fa99b450d154
+			defaultHierarchy: LocalDateTable_164c31ac-3a4a-46a7-b335-de7afb5835d1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LoanEndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c5019754-660f-4b41-bccb-201a5f71b857
+		summarizeBy: none
+		sourceColumn: LoanEndDate
+
+		variation Variation
+			isDefault
+			relationship: 4e584be5-c4d7-451d-93ae-ecc83b100119
+			defaultHierarchy: LocalDateTable_a4fabfad-173c-4d2d-843b-fa7edee5831b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dbo_Loans = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_Loans = Source{[Schema="dbo",Item="dbo_Loans"]}[Data]
+				in
+				    dbo_dbo_Loans
+
+	annotation PBI_ResultType = Table
+

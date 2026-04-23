@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "insur_sal_transaction"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "37f1ba95-807c-9eeb-4208-40fe1b1e7be7"
+  }
+}

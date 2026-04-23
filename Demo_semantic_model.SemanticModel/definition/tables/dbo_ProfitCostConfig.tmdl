@@ -1,0 +1,36 @@
+table dbo_ProfitCostConfig
+	lineageTag: 368e46ad-fc70-4a3d-be70-407aa542c191
+	sourceLineageTag: [dbo].[dbo_ProfitCostConfig]
+
+	column CostType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d5f3b1f2-5557-4dda-b337-f0bad1d127cd
+		sourceLineageTag: CostType
+		summarizeBy: none
+		sourceColumn: CostType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostPercentage
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(5, 2)
+		lineageTag: 58af29d9-eef8-4ed7-81f1-3d76d6506049
+		sourceLineageTag: CostPercentage
+		summarizeBy: sum
+		sourceColumn: CostPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition dbo_ProfitCostConfig = entity
+		mode: directLake
+		source
+			entityName: dbo_ProfitCostConfig
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

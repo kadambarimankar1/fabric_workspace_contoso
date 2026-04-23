@@ -1,0 +1,39 @@
+table dbo_Regions
+	lineageTag: 8e5371eb-efd4-447f-ba7e-cd82b50948e2
+
+	column RegionID
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ffda76c-778a-4fbc-bc3b-74ddea2c4f37
+		summarizeBy: count
+		sourceColumn: RegionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionName
+		dataType: string
+		lineageTag: af96d21c-cc66-436e-8064-c7da39dcbfba
+		summarizeBy: none
+		sourceColumn: RegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 9d96f5ad-c6e1-4f86-9be8-740bb0a17f23
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Regions = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_Regions = Source{[Schema="dbo",Item="dbo_Regions"]}[Data]
+				in
+				    dbo_dbo_Regions
+
+	annotation PBI_ResultType = Table
+
