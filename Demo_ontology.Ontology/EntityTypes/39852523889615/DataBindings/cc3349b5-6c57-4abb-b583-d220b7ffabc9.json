@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "cc3349b5-6c57-4abb-b583-d220b7ffabc9",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "CostType",
+        "targetPropertyId": "237297542464195784"
+      },
+      {
+        "sourceColumnName": "CostPercentage",
+        "targetPropertyId": "237297568064415492"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_ProfitCostConfig",
+      "sourceSchema": "dbo"
+    }
+  }
+}

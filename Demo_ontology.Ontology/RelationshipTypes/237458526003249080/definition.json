@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "237458526003249080",
+  "name": "dbo_Transactions_has_dbo_Accounts",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "117564919165271"
+  },
+  "target": {
+    "entityTypeId": "90896967122950"
+  }
+}

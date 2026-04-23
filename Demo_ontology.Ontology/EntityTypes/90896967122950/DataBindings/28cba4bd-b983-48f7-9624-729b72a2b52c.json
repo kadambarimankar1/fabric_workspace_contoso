@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "28cba4bd-b983-48f7-9624-729b72a2b52c",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "AccountID",
+        "targetPropertyId": "237298003113355298"
+      },
+      {
+        "sourceColumnName": "CustomerID",
+        "targetPropertyId": "237298024780936186"
+      },
+      {
+        "sourceColumnName": "AccountType",
+        "targetPropertyId": "237298051106435256"
+      },
+      {
+        "sourceColumnName": "OpenDate",
+        "targetPropertyId": "237298069837804312"
+      },
+      {
+        "sourceColumnName": "Status",
+        "targetPropertyId": "237298092633634447"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_Accounts",
+      "sourceSchema": "dbo"
+    }
+  }
+}

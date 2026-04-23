@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "9514a269-7b08-42f2-ad30-5b07a63d4a2a",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "TransactionID",
+        "targetPropertyId": "237298317571572279"
+      },
+      {
+        "sourceColumnName": "AccountID",
+        "targetPropertyId": "237298340763950495"
+      },
+      {
+        "sourceColumnName": "TransactionDate",
+        "targetPropertyId": "237298364290901168"
+      },
+      {
+        "sourceColumnName": "Amount",
+        "targetPropertyId": "237298386848411788"
+      },
+      {
+        "sourceColumnName": "TransactionType",
+        "targetPropertyId": "237298415093953320"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_Transactions",
+      "sourceSchema": "dbo"
+    }
+  }
+}

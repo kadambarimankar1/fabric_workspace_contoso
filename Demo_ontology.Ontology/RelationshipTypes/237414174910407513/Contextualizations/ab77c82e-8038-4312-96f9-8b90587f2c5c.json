@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "ab77c82e-8038-4312-96f9-8b90587f2c5c",
+  "dataBindingTable": {
+    "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+    "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+    "sourceTableName": "dbo_Accounts",
+    "sourceSchema": "dbo",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "CustomerID",
+      "targetPropertyId": "237297371202314476"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "AccountID",
+      "targetPropertyId": "237298003113355298"
+    }
+  ]
+}
