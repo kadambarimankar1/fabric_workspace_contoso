@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "key_metrics2_sales_insur"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "78dda055-5baf-a549-4f64-b214d6b724b0"
+  }
+}

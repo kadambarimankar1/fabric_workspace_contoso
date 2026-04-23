@@ -1,0 +1,71 @@
+table dbo_Customers
+	lineageTag: c9944878-8b80-4350-94f0-e72f248ffa07
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: c4e32681-669b-4c23-bd86-ae03d056757e
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: ba0bd749-58a3-40a9-8514-17552a6861ea
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 09283174-e6d2-40d4-a86f-28ac25dc9534
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 82e56b15-3db9-4db8-a6b4-4daae0d71936
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 6a32eff4-14d6-407c-8cfb-8ac0e9da877e
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e319e078-1774-407f-a5c2-58e68bc6fc4e
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 83e22aff-15c5-4304-ba81-b3c1b9c2b80d
+			defaultHierarchy: LocalDateTable_b21490ee-63de-4be5-bcfb-661a114b3a75.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dbo_Customers = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_Customers = Source{[Schema="dbo",Item="dbo_Customers"]}[Data]
+				in
+				    dbo_dbo_Customers
+
+	annotation PBI_ResultType = Table
+

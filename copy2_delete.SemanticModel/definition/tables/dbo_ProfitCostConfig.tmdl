@@ -1,0 +1,32 @@
+table dbo_ProfitCostConfig
+	lineageTag: 3d14a1fc-34da-4b6b-8b56-cd952c70f352
+
+	column CostType
+		dataType: string
+		lineageTag: c68bdcfd-ba68-4615-a0b2-f1da3ad4de72
+		summarizeBy: none
+		sourceColumn: CostType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostPercentage
+		dataType: double
+		lineageTag: 52ef0d52-1461-4f4f-ba7b-ec06ff87f669
+		summarizeBy: sum
+		sourceColumn: CostPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dbo_ProfitCostConfig = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_ProfitCostConfig = Source{[Schema="dbo",Item="dbo_ProfitCostConfig"]}[Data]
+				in
+				    dbo_dbo_ProfitCostConfig
+
+	annotation PBI_ResultType = Table
+
