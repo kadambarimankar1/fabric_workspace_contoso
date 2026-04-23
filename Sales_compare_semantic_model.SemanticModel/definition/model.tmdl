@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation PBI_ProTooling = ["WebModelingEdit","CopilotTooling"]
+
+ref table dim_region
+ref table dim_policy
+ref table dim_festival
+ref table fact_policy_sales
+ref table dim_customer
+ref table dim_date
+
+ref cultureInfo en-US
+

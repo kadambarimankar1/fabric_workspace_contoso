@@ -1,0 +1,48 @@
+relationship 88887e98-0acb-4182-adc1-1d4da674273c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dbo_Accounts.OpenDate
+	toColumn: LocalDateTable_844cbeef-1bfd-4a63-888d-10e48578eca5.Date
+
+relationship 83e22aff-15c5-4304-ba81-b3c1b9c2b80d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dbo_Customers.CreatedDate
+	toColumn: LocalDateTable_b21490ee-63de-4be5-bcfb-661a114b3a75.Date
+
+relationship 02783b19-dd6e-40af-8f4f-fa99b450d154
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dbo_Loans.LoanStartDate
+	toColumn: LocalDateTable_164c31ac-3a4a-46a7-b335-de7afb5835d1.Date
+
+relationship 4e584be5-c4d7-451d-93ae-ecc83b100119
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dbo_Loans.LoanEndDate
+	toColumn: LocalDateTable_a4fabfad-173c-4d2d-843b-fa7edee5831b.Date
+
+relationship c7a4fd86-14cf-4765-a0f1-041fd5543e67
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dbo_LoanPayments.PaymentDate
+	toColumn: LocalDateTable_a4013ebe-e708-4a60-985e-60fd9c70ab94.Date
+
+relationship 8e6b8442-f31e-4a1c-a3b4-f0a74a7757d2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dbo_Payments.PaymentDate
+	toColumn: LocalDateTable_c469e2b6-f89f-4c4d-b3dd-7b7238df9c5f.Date
+
+relationship AutoDetected_405e88ea-47b4-40ac-8dcb-05e53dfd6af8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dbo_Customers.CustomerID
+	toColumn: dbo_Accounts.CustomerID
+
+relationship AutoDetected_ab0ee62a-d2f2-4a12-82e1-f74a672753c4
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dbo_Loans.CustomerID
+	toColumn: dbo_Accounts.CustomerID
+
+relationship AutoDetected_d26c1403-a6d5-45f6-b98b-ad1927f04580
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dbo_LoanPayments.LoanID
+	toColumn: dbo_Loans.LoanID
+

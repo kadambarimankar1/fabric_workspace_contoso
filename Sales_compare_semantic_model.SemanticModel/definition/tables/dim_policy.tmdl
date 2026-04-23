@@ -1,0 +1,54 @@
+table dim_policy
+	lineageTag: 3f29a8e8-09a8-43f3-af8e-09f11223cd01
+	sourceLineageTag: [insurance].[dim_policy]
+
+	column policy_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ca1960bd-ea0c-4949-9b3f-c8921b3bc1d5
+		sourceLineageTag: policy_id
+		summarizeBy: none
+		sourceColumn: policy_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6cc05efc-1a00-4fe0-9405-8966dd4ebbae
+		sourceLineageTag: policy_name
+		summarizeBy: none
+		sourceColumn: policy_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column policy_type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c8e49ae2-c0c8-49af-9339-c2632e773836
+		sourceLineageTag: policy_type
+		summarizeBy: none
+		sourceColumn: policy_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cb600016-c70e-4e2d-bcc6-5c7a81737f1f
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_policy = entity
+		mode: directLake
+		source
+			entityName: dim_policy
+			schemaName: insurance
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

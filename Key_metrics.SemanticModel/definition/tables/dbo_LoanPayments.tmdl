@@ -1,0 +1,58 @@
+table dbo_LoanPayments
+	lineageTag: 826adb7f-8d1b-4703-801c-94efb324312c
+
+	column LoanPaymentID
+		dataType: int64
+		formatString: 0
+		lineageTag: e3ed0d43-f140-4385-989f-89f9ad09d907
+		summarizeBy: count
+		sourceColumn: LoanPaymentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanID
+		dataType: int64
+		formatString: 0
+		lineageTag: 76327d0d-ce9f-4946-809f-aea69b3419e0
+		summarizeBy: none
+		sourceColumn: LoanID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 60897caa-13cb-4c85-9e5d-dfd96340317c
+		summarizeBy: none
+		sourceColumn: PaymentDate
+
+		variation Variation
+			isDefault
+			relationship: c7a4fd86-14cf-4765-a0f1-041fd5543e67
+			defaultHierarchy: LocalDateTable_a4013ebe-e708-4a60-985e-60fd9c70ab94.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PaymentAmount
+		dataType: double
+		lineageTag: 795624cd-d1ed-4631-b5a5-1848d46bf06a
+		summarizeBy: sum
+		sourceColumn: PaymentAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dbo_LoanPayments = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_LoanPayments = Source{[Schema="dbo",Item="dbo_LoanPayments"]}[Data]
+				in
+				    dbo_dbo_LoanPayments
+
+	annotation PBI_ResultType = Table
+

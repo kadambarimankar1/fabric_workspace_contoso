@@ -1,0 +1,83 @@
+table dbo_Loans
+	lineageTag: 1b70eda7-3456-4b77-9292-ac46d48b9a88
+	sourceLineageTag: [dbo].[dbo_Loans]
+
+	column LoanID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cfa63a04-0b9b-428c-a487-8fab75b2e1d6
+		sourceLineageTag: LoanID
+		summarizeBy: none
+		sourceColumn: LoanID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b17daca7-9a7c-4899-8a44-625861bfc12c
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: 3e32dd16-fd72-4563-9839-a1455c46c170
+		sourceLineageTag: LoanAmount
+		summarizeBy: sum
+		sourceColumn: LoanAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column InterestRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(5, 2)
+		lineageTag: 3a723762-f2b5-4b4e-9c6b-3b44a1d3cdbd
+		sourceLineageTag: InterestRate
+		summarizeBy: sum
+		sourceColumn: InterestRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LoanStartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 924861a0-1a30-4831-9c9d-9055b6ebbd94
+		sourceLineageTag: LoanStartDate
+		summarizeBy: none
+		sourceColumn: LoanStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanEndDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 69360474-2f7a-451a-8f3b-eb328d924093
+		sourceLineageTag: LoanEndDate
+		summarizeBy: none
+		sourceColumn: LoanEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Loans = entity
+		mode: directLake
+		source
+			entityName: dbo_Loans
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

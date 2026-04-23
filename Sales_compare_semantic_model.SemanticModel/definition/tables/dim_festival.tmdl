@@ -1,0 +1,57 @@
+/// Contains Indian festivals used for sales attribution analysis. Each policy sale can optionally be associated with a festival period for seasonal trend analysis.
+table dim_festival
+	lineageTag: 00161516-db14-49cc-9c47-14fad222ec8a
+	sourceLineageTag: [insurance].[dim_festival]
+
+	/// Unique identifier for a festival (primary key). Used to link policy sales to festival periods.
+	column festival_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 045cb4af-8e60-4897-8177-8ba0ba4979df
+		sourceLineageTag: festival_id
+		summarizeBy: none
+		sourceColumn: festival_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Name of the Indian festival (e.g., Diwali, Holi, Eid).
+	column festival_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8d5e959e-7839-4d93-9a99-55c437be2471
+		sourceLineageTag: festival_name
+		summarizeBy: none
+		sourceColumn: festival_name
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar year in which the festival occurs.
+	column festival_year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8170cc3d-c2ec-41c1-ac8d-0f3a82b6bf44
+		sourceLineageTag: festival_year
+		summarizeBy: none
+		sourceColumn: festival_year
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_festival = entity
+		mode: directLake
+		source
+			entityName: dim_festival
+			schemaName: insurance
+			expressionSource: DatabaseQuery
+
+	changedProperty = Description
+
+	annotation PBI_ResultType = Table
+

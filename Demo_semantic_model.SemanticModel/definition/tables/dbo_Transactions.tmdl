@@ -1,0 +1,69 @@
+table dbo_Transactions
+	lineageTag: f43ba3d4-8587-4965-9cd5-148b757e3d81
+	sourceLineageTag: [dbo].[dbo_Transactions]
+
+	column TransactionID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 420f78d4-7931-4f6c-8aed-fdcb802c4d02
+		sourceLineageTag: TransactionID
+		summarizeBy: none
+		sourceColumn: TransactionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 70044e4e-5823-4ac2-a2c9-a379dae07414
+		sourceLineageTag: AccountID
+		summarizeBy: none
+		sourceColumn: AccountID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 189ac4c7-a2ac-48c0-9a13-e46fc9c219a6
+		sourceLineageTag: TransactionDate
+		summarizeBy: none
+		sourceColumn: TransactionDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: 7a187145-f892-4e9d-a7de-6c3f0a34b5c3
+		sourceLineageTag: Amount
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TransactionType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d48492aa-0a7d-4acc-bd3b-209c0f21e66e
+		sourceLineageTag: TransactionType
+		summarizeBy: none
+		sourceColumn: TransactionType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Transactions = entity
+		mode: directLake
+		source
+			entityName: dbo_Transactions
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

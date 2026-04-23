@@ -1,0 +1,127 @@
+/// Calendar dimension used for time‑based analysis including year‑over‑year, month‑over‑month, and trend analysis.
+table dim_date
+	lineageTag: 34d467fd-bf65-4b3b-b8dc-b3e863805d10
+	sourceLineageTag: [insurance].[dim_date]
+
+	column full_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 94d239ff-e10c-4ed7-a39e-4606ae35bb11
+		sourceLineageTag: full_date
+		summarizeBy: none
+		sourceColumn: full_date
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar year associated with the date.
+	column year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3d950f31-d5d8-4e04-99c3-27a3a99c30c0
+		sourceLineageTag: year
+		summarizeBy: none
+		sourceColumn: year
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4285b57c-4f3d-4cad-b52b-9c5d410b4161
+		sourceLineageTag: month
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Unique date identifier used to join with fact tables.
+	column date_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e3158d18-51f9-42ab-be9d-a53f4779ea3b
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7be342aa-fd14-45d0-9e57-0258b7e16410
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8228e39f-6f05-4b9d-8de8-dbc5713800cd
+		sourceLineageTag: quarter
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3a2c6491-37de-478d-9d3f-1c01a2527f26
+		sourceLineageTag: day
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ccab667c-fa1e-4e4a-b09c-21c0baed0bec
+		sourceLineageTag: day_of_week
+		summarizeBy: none
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cc5511ba-a033-47b6-81f5-376259dd0d2a
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column festival_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29defaf1-a76d-4eea-bd9f-c488f73ad6c6
+		sourceLineageTag: festival_name
+		summarizeBy: none
+		sourceColumn: festival_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: insurance
+			expressionSource: DatabaseQuery
+
+	changedProperty = Description
+
+	annotation PBI_ResultType = Table
+

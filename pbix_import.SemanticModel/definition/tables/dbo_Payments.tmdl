@@ -1,0 +1,64 @@
+table dbo_Payments
+	lineageTag: 96215fb6-b6b2-4db8-bd6b-0faf568e75aa
+
+	column PaymentID
+		dataType: int64
+		formatString: 0
+		lineageTag: a747d76c-0841-4331-8da8-fd8b924f756d
+		summarizeBy: count
+		sourceColumn: PaymentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionID
+		dataType: int64
+		formatString: 0
+		lineageTag: fd1cd2da-4a8d-4f5b-afc9-328cbf2a2f02
+		summarizeBy: count
+		sourceColumn: TransactionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentMethod
+		dataType: string
+		lineageTag: 53b21175-8a62-48b5-8864-ec00880e3653
+		summarizeBy: none
+		sourceColumn: PaymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 27890255-ebf8-42ae-b572-5a912cd9c53d
+		summarizeBy: none
+		sourceColumn: PaymentDate
+
+		variation Variation
+			isDefault
+			relationship: 8e6b8442-f31e-4a1c-a3b4-f0a74a7757d2
+			defaultHierarchy: LocalDateTable_c469e2b6-f89f-4c4d-b3dd-7b7238df9c5f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PaymentStatus
+		dataType: string
+		lineageTag: 9a57466a-9385-4f1e-95bd-2be25b3767af
+		summarizeBy: none
+		sourceColumn: PaymentStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Payments = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("mwx7qcmlyhjuvoevccszdypeqa-wvc4iacjogaexmonqthaugsmj4.datawarehouse.fabric.microsoft.com", "Bronze"),
+				    dbo_dbo_Payments = Source{[Schema="dbo",Item="dbo_Payments"]}[Data]
+				in
+				    dbo_dbo_Payments
+
+	annotation PBI_ResultType = Table
+

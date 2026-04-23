@@ -1,0 +1,20 @@
+relationship fa284dd9-e215-f5bf-a498-9578bf7869a3
+	fromColumn: dim_customer.customer_id
+	toColumn: fact_policy_sales.customer_id
+
+relationship 0bb5a764-0491-5f08-caa8-cbbc2f3f4dc7
+	fromColumn: fact_policy_sales.festival_id
+	toColumn: dim_festival.festival_id
+
+relationship 4d5deb2f-bd6e-db33-c266-24e04a2eeb9f
+	fromColumn: fact_policy_sales.policy_id
+	toColumn: dim_policy.policy_id
+
+relationship 82e9942e-b3e2-e758-ac42-3ab667ede5f1
+	fromColumn: fact_policy_sales.region_id
+	toColumn: dim_region.region_id
+
+relationship 857ac963-62e2-3999-ec66-949d3b405cba
+	fromColumn: fact_policy_sales.date_id
+	toColumn: dim_date.date_key
+

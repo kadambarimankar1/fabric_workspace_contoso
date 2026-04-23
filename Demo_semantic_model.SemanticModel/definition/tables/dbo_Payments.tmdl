@@ -1,0 +1,66 @@
+table dbo_Payments
+	lineageTag: 9a71d643-cbcf-45d7-b83d-a1b9bbb992d3
+	sourceLineageTag: [dbo].[dbo_Payments]
+
+	column PaymentID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c8b0fd5b-9fe0-42d2-8c31-e9131a8b33d7
+		sourceLineageTag: PaymentID
+		summarizeBy: count
+		sourceColumn: PaymentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2a0dee00-24b0-4f72-90fc-c9fdc74ad9b8
+		sourceLineageTag: TransactionID
+		summarizeBy: none
+		sourceColumn: TransactionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentMethod
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ade38ee2-b27b-4deb-acf4-181341e63cbd
+		sourceLineageTag: PaymentMethod
+		summarizeBy: none
+		sourceColumn: PaymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 88bc97e7-414d-4d80-9709-ff0f1e02c9fd
+		sourceLineageTag: PaymentDate
+		summarizeBy: none
+		sourceColumn: PaymentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentStatus
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 898aa1db-3a84-419a-aa1d-4f6b1d46858f
+		sourceLineageTag: PaymentStatus
+		summarizeBy: none
+		sourceColumn: PaymentStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dbo_Payments = entity
+		mode: directLake
+		source
+			entityName: dbo_Payments
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

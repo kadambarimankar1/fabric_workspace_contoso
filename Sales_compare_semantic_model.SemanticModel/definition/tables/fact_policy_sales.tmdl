@@ -1,0 +1,177 @@
+/// Contains individual insurance policy sale transactions. This table stores premium amounts and links to customers, dates, regions, and festivals.
+table fact_policy_sales
+	lineageTag: cfdc0866-2807-4f0e-b2fb-8c994697fe0a
+	sourceLineageTag: [insurance].[fact_policy_sales]
+
+	measure 'Total Sales' = SUM(fact_policy_sales[sales_amount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dc3f038c-5139-49bc-950b-9d959e7c6cf2
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Profit' = SUM(fact_policy_sales[profit_amount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 694fb713-9468-476c-bd8b-c0de87567c94
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Policies Sold' = COUNT(fact_policy_sales[sales_id])
+		formatString: 0
+		lineageTag: e9e216fd-fa87-46de-afff-6cf5a68212a5
+
+		changedProperty = Name
+
+	measure 'Profit Margin' =
+			
+			DIVIDE([Total Profit], [Total Sales])
+		lineageTag: b0cb17c5-008b-4b3e-8154-80cc84ed6b3d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Unique identifier for each policy sale transaction.
+	column sales_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cba5cdc0-cc94-49df-a57a-af96210430f2
+		sourceLineageTag: sales_id
+		summarizeBy: sum
+		sourceColumn: sales_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// References the customer who purchased the policy.
+	column customer_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b2985cd8-c52a-4867-9f8f-f0c87fe77452
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the insurance policy sold.
+	column policy_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bc8cbae8-0569-4a27-9484-645c1320e5b1
+		sourceLineageTag: policy_id
+		summarizeBy: none
+		sourceColumn: policy_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// References the geographic region of the sale.
+	column region_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f7c88e35-077d-4902-b883-52de48f6f717
+		sourceLineageTag: region_id
+		summarizeBy: none
+		sourceColumn: region_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// References the festival associated with the policy sale, if applicable.
+	column festival_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c69a09bf-602a-4d7d-8fc6-474ea021e156
+		sourceLineageTag: festival_id
+		summarizeBy: none
+		sourceColumn: festival_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// References the date when the policy was sold.
+	column date_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 752de86e-6869-43fc-b3bb-a91418db2e92
+		sourceLineageTag: date_id
+		summarizeBy: none
+		sourceColumn: date_id
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Monetary value of the insurance premium collected for the policy. Synonyms :sales
+	/// revenue
+	/// premium
+	/// policy sales
+	/// insurance sales
+	column sales_amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: b034a53d-1dd8-4057-b352-16294d4a1011
+		sourceLineageTag: sales_amount
+		summarizeBy: sum
+		sourceColumn: sales_amount
+
+		changedProperty = Description
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column cost_amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: 4e74bca0-3594-45e9-bb94-9e1e7898711d
+		sourceLineageTag: cost_amount
+		summarizeBy: sum
+		sourceColumn: cost_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column profit_amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(12, 2)
+		lineageTag: de94ead4-e2f7-4304-b20b-773f5a4b4e56
+		sourceLineageTag: profit_amount
+		summarizeBy: sum
+		sourceColumn: profit_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition fact_policy_sales = entity
+		mode: directLake
+		source
+			entityName: fact_policy_sales
+			schemaName: insurance
+			expressionSource: DatabaseQuery
+
+	changedProperty = Description
+
+	annotation PBI_ResultType = Table
+
