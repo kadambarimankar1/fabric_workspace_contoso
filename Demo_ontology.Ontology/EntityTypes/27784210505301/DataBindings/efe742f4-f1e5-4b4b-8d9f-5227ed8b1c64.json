@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "efe742f4-f1e5-4b4b-8d9f-5227ed8b1c64",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "CustomerID",
+        "targetPropertyId": "237297371202314476"
+      },
+      {
+        "sourceColumnName": "CustomerName",
+        "targetPropertyId": "237297395065368813"
+      },
+      {
+        "sourceColumnName": "Email",
+        "targetPropertyId": "237297423781432198"
+      },
+      {
+        "sourceColumnName": "Region",
+        "targetPropertyId": "237297449870923207"
+      },
+      {
+        "sourceColumnName": "Country",
+        "targetPropertyId": "237297474704406920"
+      },
+      {
+        "sourceColumnName": "CreatedDate",
+        "targetPropertyId": "237297495420745222"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_Customers",
+      "sourceSchema": "dbo"
+    }
+  }
+}

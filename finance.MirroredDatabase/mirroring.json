@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "source": {
+      "type": "AzurePostgreSql",
+      "typeProperties": {
+        "connection": "23f681ff-a984-4331-8177-b2dfc7e28699",
+        "landingZone": {
+          "type": "MountedRelationalDatabase",
+          "typeProperties": {}
+        }
+      }
+    },
+    "target": {
+      "type": "MountedRelationalDatabase",
+      "typeProperties": {
+        "defaultSchema": "dbo",
+        "format": "Delta",
+        "retentionInDays": 1
+      }
+    },
+    "mountedTables": [
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "fabric_test",
+            "tableName": "employee"
+          }
+        }
+      }
+    ]
+  }
+}

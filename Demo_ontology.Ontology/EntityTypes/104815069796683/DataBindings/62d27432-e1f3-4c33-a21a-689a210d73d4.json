@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "62d27432-e1f3-4c33-a21a-689a210d73d4",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "PaymentID",
+        "targetPropertyId": "237298177345865339"
+      },
+      {
+        "sourceColumnName": "TransactionID",
+        "targetPropertyId": "237298202267465678"
+      },
+      {
+        "sourceColumnName": "PaymentMethod",
+        "targetPropertyId": "237298230389288146"
+      },
+      {
+        "sourceColumnName": "PaymentDate",
+        "targetPropertyId": "237298248972838599"
+      },
+      {
+        "sourceColumnName": "PaymentStatus",
+        "targetPropertyId": "237298270306515580"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_Payments",
+      "sourceSchema": "dbo"
+    }
+  }
+}

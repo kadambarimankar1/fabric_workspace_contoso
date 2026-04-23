@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "a2e6b664-c2d0-408e-9e00-3ce09a756f38",
+  "dataBindingTable": {
+    "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+    "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+    "sourceTableName": "dbo_Loans",
+    "sourceSchema": "dbo",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "LoanID",
+      "targetPropertyId": "237297846422212739"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "CustomerID",
+      "targetPropertyId": "237297371202314476"
+    }
+  ]
+}

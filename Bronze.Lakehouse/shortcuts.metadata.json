@@ -1,0 +1,14 @@
+[
+  {
+    "name": "large_poc_table",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "c2e787c1-07be-4984-91d4-a0f040d4d80f",
+        "location": "https://mystorageaccountend.dfs.core.windows.net",
+        "subpath": "/data/demo_data/large_poc_table"
+      }
+    }
+  }
+]

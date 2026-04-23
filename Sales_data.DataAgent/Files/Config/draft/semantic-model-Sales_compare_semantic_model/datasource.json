@@ -1,0 +1,426 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "6118e25e-1d83-90ff-4e2d-0637b4f07a6d",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "Sales_compare_semantic_model",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "f02f6461-e315-4c7a-b3b8-233e1628a5ae",
+      "is_selected": true,
+      "display_name": "dim_customer",
+      "type": "semantic_model.table",
+      "description": "Contains customer demographic and segmentation attributes used for insurance policy analysis. Each customer can be associated with multiple policy sales.",
+      "children": [
+        {
+          "id": "b019ecf2-fe47-4fc4-b87d-abf7db88e61a",
+          "is_selected": true,
+          "display_name": "age",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Age of the customer at the time of policy purchase.",
+          "children": []
+        },
+        {
+          "id": "ac2a28b0-e8b6-44de-bae0-5376bfca106d",
+          "is_selected": true,
+          "display_name": "city",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": "City of residence of the customer used for regional analysis.",
+          "children": []
+        },
+        {
+          "id": "f9931c13-9a21-44c9-8eb7-d773922e57b1",
+          "is_selected": true,
+          "display_name": "customer_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Unique identifier for a customer. Used to join customer details with policy sales.",
+          "children": []
+        },
+        {
+          "id": "43ad904c-0ed6-4283-a1fd-2acc3e4da14d",
+          "is_selected": true,
+          "display_name": "customer_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": "Full name of the customer. Used for reporting and AI responses.",
+          "children": []
+        },
+        {
+          "id": "5963c660-ae04-4efa-bdb4-48a95433f491",
+          "is_selected": true,
+          "display_name": "gender",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": "Gender of the customer used for demographic analysis.",
+          "children": []
+        },
+        {
+          "id": "5a867ee8-cbf9-4570-a862-d3fae03a3537",
+          "is_selected": true,
+          "display_name": "income_group",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": "Income classification of the customer used for segmentation and targeting.",
+          "children": []
+        },
+        {
+          "id": "65e38916-48fd-44dc-aede-d156a25e6114",
+          "is_selected": true,
+          "display_name": "Sales LY",
+          "type": "semantic_model.measure",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "34d467fd-bf65-4b3b-b8dc-b3e863805d10",
+      "is_selected": true,
+      "display_name": "dim_date",
+      "type": "semantic_model.table",
+      "description": "Calendar dimension used for time‑based analysis including year‑over‑year, month‑over‑month, and trend analysis.",
+      "children": [
+        {
+          "id": "e3158d18-51f9-42ab-be9d-a53f4779ea3b",
+          "is_selected": true,
+          "display_name": "date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Unique date identifier used to join with fact tables.",
+          "children": []
+        },
+        {
+          "id": "3a2c6491-37de-478d-9d3f-1c01a2527f26",
+          "is_selected": true,
+          "display_name": "day",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ccab667c-fa1e-4e4a-b09c-21c0baed0bec",
+          "is_selected": true,
+          "display_name": "day_of_week",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "29defaf1-a76d-4eea-bd9f-c488f73ad6c6",
+          "is_selected": true,
+          "display_name": "festival_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "94d239ff-e10c-4ed7-a39e-4606ae35bb11",
+          "is_selected": true,
+          "display_name": "full_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cc5511ba-a033-47b6-81f5-376259dd0d2a",
+          "is_selected": true,
+          "display_name": "is_weekend",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4285b57c-4f3d-4cad-b52b-9c5d410b4161",
+          "is_selected": true,
+          "display_name": "month",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7be342aa-fd14-45d0-9e57-0258b7e16410",
+          "is_selected": true,
+          "display_name": "month_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8228e39f-6f05-4b9d-8de8-dbc5713800cd",
+          "is_selected": true,
+          "display_name": "quarter",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3d950f31-d5d8-4e04-99c3-27a3a99c30c0",
+          "is_selected": true,
+          "display_name": "year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Calendar year associated with the date.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "00161516-db14-49cc-9c47-14fad222ec8a",
+      "is_selected": true,
+      "display_name": "dim_festival",
+      "type": "semantic_model.table",
+      "description": "Contains Indian festivals used for sales attribution analysis. Each policy sale can optionally be associated with a festival period for seasonal trend analysis.",
+      "children": [
+        {
+          "id": "045cb4af-8e60-4897-8177-8ba0ba4979df",
+          "is_selected": true,
+          "display_name": "festival_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Unique identifier for a festival (primary key). Used to link policy sales to festival periods.",
+          "children": []
+        },
+        {
+          "id": "8d5e959e-7839-4d93-9a99-55c437be2471",
+          "is_selected": true,
+          "display_name": "festival_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": "Name of the Indian festival (e.g., Diwali, Holi, Eid).",
+          "children": []
+        },
+        {
+          "id": "8170cc3d-c2ec-41c1-ac8d-0f3a82b6bf44",
+          "is_selected": true,
+          "display_name": "festival_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Calendar year in which the festival occurs.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "3f29a8e8-09a8-43f3-af8e-09f11223cd01",
+      "is_selected": true,
+      "display_name": "dim_policy",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "cb600016-c70e-4e2d-bcc6-5c7a81737f1f",
+          "is_selected": true,
+          "display_name": "category",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ca1960bd-ea0c-4949-9b3f-c8921b3bc1d5",
+          "is_selected": true,
+          "display_name": "policy_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6cc05efc-1a00-4fe0-9405-8966dd4ebbae",
+          "is_selected": true,
+          "display_name": "policy_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c8e49ae2-c0c8-49af-9339-c2632e773836",
+          "is_selected": true,
+          "display_name": "policy_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "56f18762-4da6-4f04-858a-7be46d81b416",
+      "is_selected": true,
+      "display_name": "dim_region",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "aa6031c1-dc15-41b0-88dc-9722ef9a566f",
+          "is_selected": true,
+          "display_name": "region_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b90e3610-2d7a-4885-ba62-f256c193618f",
+          "is_selected": true,
+          "display_name": "region_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "91cd1fac-3dc9-4ad9-a4ef-c189916df114",
+          "is_selected": true,
+          "display_name": "zone",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cfdc0866-2807-4f0e-b2fb-8c994697fe0a",
+      "is_selected": true,
+      "display_name": "fact_policy_sales",
+      "type": "semantic_model.table",
+      "description": "Contains individual insurance policy sale transactions. This table stores premium amounts and links to customers, dates, regions, and festivals.",
+      "children": [
+        {
+          "id": "4e74bca0-3594-45e9-bb94-9e1e7898711d",
+          "is_selected": true,
+          "display_name": "cost_amount",
+          "type": "semantic_model.column",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b2985cd8-c52a-4867-9f8f-f0c87fe77452",
+          "is_selected": true,
+          "display_name": "customer_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "References the customer who purchased the policy.",
+          "children": []
+        },
+        {
+          "id": "752de86e-6869-43fc-b3bb-a91418db2e92",
+          "is_selected": true,
+          "display_name": "date_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "References the date when the policy was sold.",
+          "children": []
+        },
+        {
+          "id": "c69a09bf-602a-4d7d-8fc6-474ea021e156",
+          "is_selected": true,
+          "display_name": "festival_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "References the festival associated with the policy sale, if applicable.",
+          "children": []
+        },
+        {
+          "id": "e9e216fd-fa87-46de-afff-6cf5a68212a5",
+          "is_selected": true,
+          "display_name": "Policies Sold",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "bc8cbae8-0569-4a27-9484-645c1320e5b1",
+          "is_selected": true,
+          "display_name": "policy_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Identifier for the insurance policy sold.",
+          "children": []
+        },
+        {
+          "id": "b0cb17c5-008b-4b3e-8154-80cc84ed6b3d",
+          "is_selected": true,
+          "display_name": "Profit Margin",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "de94ead4-e2f7-4304-b20b-773f5a4b4e56",
+          "is_selected": true,
+          "display_name": "profit_amount",
+          "type": "semantic_model.column",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f7c88e35-077d-4902-b883-52de48f6f717",
+          "is_selected": true,
+          "display_name": "region_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "References the geographic region of the sale.",
+          "children": []
+        },
+        {
+          "id": "b034a53d-1dd8-4057-b352-16294d4a1011",
+          "is_selected": true,
+          "display_name": "sales_amount",
+          "type": "semantic_model.column",
+          "data_type": "Decimal",
+          "description": "Monetary value of the insurance premium collected for the policy. Synonyms :sales\nrevenue\npremium\npolicy sales\ninsurance sales",
+          "children": []
+        },
+        {
+          "id": "cba5cdc0-cc94-49df-a57a-af96210430f2",
+          "is_selected": true,
+          "display_name": "sales_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": "Unique identifier for each policy sale transaction.",
+          "children": []
+        },
+        {
+          "id": "694fb713-9468-476c-bd8b-c0de87567c94",
+          "is_selected": true,
+          "display_name": "Total Profit",
+          "type": "semantic_model.measure",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dc3f038c-5139-49bc-950b-9d959e7c6cf2",
+          "is_selected": true,
+          "display_name": "Total Sales",
+          "type": "semantic_model.measure",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

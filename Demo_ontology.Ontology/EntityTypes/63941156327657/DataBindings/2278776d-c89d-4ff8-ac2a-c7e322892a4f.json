@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "2278776d-c89d-4ff8-ac2a-c7e322892a4f",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "RegionID",
+        "targetPropertyId": "237297742529915185"
+      },
+      {
+        "sourceColumnName": "RegionName",
+        "targetPropertyId": "237297769979790627"
+      },
+      {
+        "sourceColumnName": "Country",
+        "targetPropertyId": "237297795327682717"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_Regions",
+      "sourceSchema": "dbo"
+    }
+  }
+}

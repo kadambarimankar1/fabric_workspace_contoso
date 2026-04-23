@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Notebook_powerbi_users_extract"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ea4755f8-140f-a335-4dc4-423b1d814bb7"
+  }
+}

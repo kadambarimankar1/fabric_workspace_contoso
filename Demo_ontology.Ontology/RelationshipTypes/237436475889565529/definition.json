@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "237436475889565529",
+  "name": "dbo_LoanPayments_has_dbo_Loans",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "51720308331975"
+  },
+  "target": {
+    "entityTypeId": "77851020716548"
+  }
+}

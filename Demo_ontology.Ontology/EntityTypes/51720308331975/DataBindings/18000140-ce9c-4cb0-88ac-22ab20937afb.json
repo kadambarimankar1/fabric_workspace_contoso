@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "18000140-ce9c-4cb0-88ac-22ab20937afb",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "LoanPaymentID",
+        "targetPropertyId": "237297612777583224"
+      },
+      {
+        "sourceColumnName": "LoanID",
+        "targetPropertyId": "237297638079962898"
+      },
+      {
+        "sourceColumnName": "PaymentDate",
+        "targetPropertyId": "237297672184825717"
+      },
+      {
+        "sourceColumnName": "PaymentAmount",
+        "targetPropertyId": "237297697399029593"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00c445b5-7149-4b80-b1cd-84ce0a1a4c4f",
+      "itemId": "f07fe9f1-7b3c-4999-b710-ecae0e773e47",
+      "sourceTableName": "dbo_LoanPayments",
+      "sourceSchema": "dbo"
+    }
+  }
+}

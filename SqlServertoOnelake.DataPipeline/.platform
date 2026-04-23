@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "SqlServertoOnelake"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "24f8b2ea-4bfa-b1cb-4571-4bfd0cf1402d"
+  }
+}

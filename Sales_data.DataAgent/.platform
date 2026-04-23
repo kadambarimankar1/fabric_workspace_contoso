@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "Sales_data"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "494693cb-87fe-8d92-4d6f-dabc7d49d830"
+  }
+}
