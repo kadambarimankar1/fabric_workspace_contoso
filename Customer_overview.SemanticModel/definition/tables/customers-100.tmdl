@@ -1,0 +1,121 @@
+table customers-100
+	lineageTag: aa0e44af-a94b-4443-bbbe-bd6767e45595
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d0c45b9-aa39-44c4-b47b-fc0e3543172e
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_Id
+		dataType: string
+		lineageTag: 94448187-86f0-4a54-8758-5842f0040ada
+		summarizeBy: none
+		sourceColumn: Customer_Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column First_Name
+		dataType: string
+		lineageTag: 5a6feced-dba8-426d-b12a-7a4b5d4de704
+		summarizeBy: none
+		sourceColumn: First_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Name
+		dataType: string
+		lineageTag: 05262d23-8531-48d9-8700-f310aa42e9c9
+		summarizeBy: none
+		sourceColumn: Last_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: 2b9b805c-3f93-4816-a5e3-a701ea34124c
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: f91bf88e-2b03-4b45-a2b4-61ac6f6e93c8
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 5ddeebc8-3b22-41e7-8b93-d2b303b11681
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone_1
+		dataType: string
+		lineageTag: 91bf04e6-df12-45be-a7c2-69c6d2004bb1
+		summarizeBy: none
+		sourceColumn: Phone_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone_2
+		dataType: string
+		lineageTag: 0c35abc8-7439-4707-95ce-6723cd198d4d
+		summarizeBy: none
+		sourceColumn: Phone_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: a6980c06-3fa8-48d3-8d74-e740b084d710
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subscription_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: eda2ce53-2028-43e2-a01e-b1149f6a86cc
+		summarizeBy: none
+		sourceColumn: Subscription_Date
+
+		variation Variation
+			isDefault
+			relationship: 63ea4927-14f3-4408-b5f3-d5995e7fe065
+			defaultHierarchy: LocalDateTable_6bcbb720-b285-4aa9-a1b3-d4c2d0bcc867.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Website
+		dataType: string
+		lineageTag: 32197c78-dfaa-411c-a993-ab411e8f717b
+		summarizeBy: none
+		sourceColumn: Website
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customers-100 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\kmankar\Downloads\customers-100.xlsx"), null, true),
+				    #"customers-100_Sheet" = Source{[Item="customers-100",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"customers-100_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Index", Int64.Type}, {"Customer_Id", type text}, {"First_Name", type text}, {"Last_Name", type text}, {"Company", type text}, {"City", type text}, {"Country", type text}, {"Phone_1", type any}, {"Phone_2", type any}, {"Email", type text}, {"Subscription_Date", type date}, {"Website", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

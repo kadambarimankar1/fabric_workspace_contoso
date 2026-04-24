@@ -1,0 +1,18 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["customers-100"]
+
+ref table customers-100
+ref table DateTableTemplate_a0534eea-af06-49d3-becf-991c05e752dd
+ref table LocalDateTable_6bcbb720-b285-4aa9-a1b3-d4c2d0bcc867
+
+ref cultureInfo en-IN
+
